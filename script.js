@@ -8,18 +8,21 @@ const incomes = document.querySelector(".incomes");
 const expenses = document.querySelector(".expenses");
 const total = document.querySelector(".total");
 
-let ite
+
+let items;
+
 
 btnnew.onclick = () => {
   if (descitem.value === "" || amount.value === "" || type.value === "") {
     return alert("Preencha todos os campos!");
   }
+  else
+    items.push({
+      desc: descitem.value,
+      amount: Math.abs(amount.value).toFixed(2),
+      type: type.value,
+    });
 
-  items.push({
-    desc: descitem.value,
-    amount: Math.abs(amount.value).toFixed(2),
-    type: type.value,
-  });
 
   setItensBD();
 
@@ -30,12 +33,17 @@ btnnew.onclick = () => {
   amount.value = "";
 };
 
+
+
+
 function deleteItem(index) {
   items.splice(index, 1);
 
   setItensBD();
   loadItens();
 }
+
+
 
 function insertItem(item, index) {
   let tr = document.createElement("tr");
@@ -95,5 +103,6 @@ const setItensBD = () =>
   localStorage.setItem("db_items", JSON.stringify(items));
 
 loadItens();
+
 
 
