@@ -87,8 +87,8 @@ function getTotals() {
   total.innerHTML = totalItems;
 }
 
-const getItensBD = () => JSON.parse(localStorage.getItem("db_items")) ?? [];
+const getItensBD = () => JSON.parse(localStorage.getItem("https://edyylson.github.io/")) ?? [];
 const setItensBD = () =>
-  localStorage.setItem("db_items", JSON.stringify(items));
+  localStorage.setItem("https://edyylson.github.io/", JSON.stringify(items));
 
 loadItens();
