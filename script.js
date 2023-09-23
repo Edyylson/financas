@@ -21,9 +21,12 @@ btnnew.onclick = () => {
     type: type.value,
   });
 
+
+
   setItensBD();
 
   loadItens();
+
 
   descitem.value = "";
   amount.value = "";
@@ -31,6 +34,7 @@ btnnew.onclick = () => {
 
 function deleteItem(index) {
   items.splice(index, 1);
+
   setItensBD();
   loadItens();
 }
@@ -54,6 +58,7 @@ function insertItem(item, index) {
 }
 
 function loadItens() {
+
   items = getItensBD();
   tbody.innerHTML = "";
   items.forEach((item, index) => {
@@ -87,8 +92,8 @@ function getTotals() {
   total.innerHTML = totalItems;
 }
 
-const getItensBD = () => JSON.parse(localStorage.getItem("https://edyylson.github.io/")) ?? [];
+const getItensBD = () => JSON.parse(localStorage.getItem("db_items")) ?? [];
 const setItensBD = () =>
-  localStorage.setItem("https://edyylson.github.io/", JSON.stringify(items));
+  localStorage.setItem("db_items", JSON.stringify(items));
 
 loadItens();
