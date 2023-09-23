@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finanças da Igreja</title>
+  <link rel="stylesheet" href="style.css">
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+
+<body>
+  <main>
+    <div class="resume">
+      <div>
+        Entradas: R$
+        <span class="incomes">0.00</span>
+      </div>
+
+      <div>
+        Saídas: R$
+        <span class="expenses">0.00</span>
+      </div>
+
+      <div>
+        Total: R$
+        <span class="total">0.00</span>
+      </div>
+
+
+    </div>
+
+    <div class="newitem">
+      <div class="divdesc">
+        <label for="desc">descrição</label>
+        <input type="text" id="desc" />
+
+      </div>
+      <div class="divamount">
+        <label for="amount">Valor</label>
+        <input type="number" id="amount" />
+
+      </div>
+
+      <div class="divtype">
+        <label for="type">Tipo</label>
+        <select id="type">
+          <option>Entrada</option>
+          <option>Saída</option>
+        </select>
+
+      </div>
+
+      <button id="btnnew">Incluir</button>
+    </div>
+
+    <div class="divtable">
+
+      <table>
+        <thead>
+          <tr>
+            <th>Descrição</th>
+            <th class="columnamount">Valor</th>
+            <th class="columntype">Tipo</th>
+            <th class="columnaction"></th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+
+
+      </table>
+
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
