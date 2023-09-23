@@ -8,7 +8,7 @@ const incomes = document.querySelector(".incomes");
 const expenses = document.querySelector(".expenses");
 const total = document.querySelector(".total");
 
-let items;
+let ite
 
 btnnew.onclick = () => {
   if (descitem.value === "" || amount.value === "" || type.value === "") {
@@ -20,8 +20,6 @@ btnnew.onclick = () => {
     amount: Math.abs(amount.value).toFixed(2),
     type: type.value,
   });
-
-
 
   setItensBD();
 
@@ -97,3 +95,5 @@ const setItensBD = () =>
   localStorage.setItem("db_items", JSON.stringify(items));
 
 loadItens();
+
+
