@@ -22,11 +22,15 @@
 //var result = y < z && z / 2 == 15;   o && sig e
 //alert(result);
 
-var tarefas = prompt("você desfilou ou fez o trabalho?")
-if (tarefas == "desfilei" || tarefas == "trabalho")
-  alert("você foi aprovado!")
-else
-  alert("você esta reprovado!");
+
+//var tarefas = prompt("você desfilou ou fez o trabalho?")
+//if (tarefas == "desfilei" || tarefas == "trabalho")   || sig ou
+// alert("você foi aprovado!")
+//else
+// alert("você esta reprovado!");
+
+
+
 
 
 
