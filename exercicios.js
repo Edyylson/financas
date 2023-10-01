@@ -36,6 +36,9 @@ if (somaTotal / BaseCalculo == 7 && aluno == "Moises") {
 else {
   console.log("Você esta reprovado!");*/
 
+console.log("ola tudo bem!");
+
+
 
 
 

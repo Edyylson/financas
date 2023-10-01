@@ -7,3 +7,34 @@
   font-family: 'poppins', sans-serif;
   outline: none;
 }
+
+h1 {
+  text-align: center;
+}
+
+main {
+  margin: auto;
+  align-items: center;
+  border: 1px solid blue;
+  position: relative;
+  height: 100vh;
+}
+
+div {
+  width: 20vw;
+  height: 300px;
+  display: inline-block;
+  border: 1px solid black;
+  position: absolute;
+
+}
+
+#teste1 {
+  right: 25%;
+  top: 25%;
+}
+
+#teste2 {
+  left: 25%;
+  top: 25%;
+}

@@ -30,6 +30,11 @@
 // alert("você esta reprovado!");
 
 
+let mensagem = document.querySelector("h1");
+mensagem.textContent = "QUE BENÇÃO HOJE É DOMINGO!!!"
+alert(mensagem.textContent);
+
+
 
 
 
