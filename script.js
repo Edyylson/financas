@@ -29,6 +29,8 @@
 //else
 // alert("você esta reprovado!");
 
+alert("você acabou de editar no github");
+
 
 
 
