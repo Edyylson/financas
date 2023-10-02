@@ -29,12 +29,34 @@
 //else
 // alert("você esta reprovado!");
 
-alert("você acabou de editar no github");
+
+
 
 
 let mensagem = document.querySelector("h1");
 mensagem.textContent = "QUE BENÇÃO HOJE É DOMINGO!!!"
 alert(mensagem.textContent);
+
+
+let divs = document.querySelectorAll("div");
+divs.textContent = "deu certo";
+alert(divs.textContent);
+
+document.write(mensagem.textContent);
+
+
+let mudanca = document.getElementById("teste1");
+let armazenar = document.write(mudanca.textContent);
+
+
+let acrescentar = document.getElementsByClassName("teste03");
+acrescentar.textContent = armazenar.innerHtml;
+alert(acrescentar.textContent);
+
+
+
+
+
 
 
 
