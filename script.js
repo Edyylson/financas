@@ -33,7 +33,7 @@
 
 
 
-let mensagem = document.querySelector("h1");
+/*let mensagem = document.querySelector("h1");
 mensagem.textContent = "QUE BENÇÃO HOJE É DOMINGO!!!"
 alert(mensagem.textContent);
 
@@ -55,7 +55,15 @@ alert(acrescentar.textContent);
 
 
 let notas = [10, 20, 30];
-let alunos = [marcos, mario, max];
+let alunos = [marcos, mario, max];*/
+
+let alerta = document.querySelector("h2");
+alert(alerta.textContent);
+
+let mudar = document.write(".teste03");
+
+mudar.textContent = "conseguir!";
+
 
 
 
