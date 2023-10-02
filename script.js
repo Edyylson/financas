@@ -50,8 +50,14 @@ let armazenar = document.write(mudanca.textContent);
 
 
 let acrescentar = document.getElementsByClassName("teste03");
-acrescentar.textContent = armazenar.innerHtml;
+acrescentar.textContent = "comecei a programar";
 alert(acrescentar.textContent);
+
+
+let notas = [10, 20, 30];
+let alunos = [marcos, mario, max];
+
+
 
 
 
