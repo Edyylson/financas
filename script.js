@@ -57,19 +57,25 @@ alert(acrescentar.textContent);
 let notas = [10, 20, 30];
 let alunos = [marcos, mario, max];*/
 
-let alerta = document.querySelector("h2");
-alert(alerta.textContent);
-
-let mudar = document.write(".teste03");
-
-mudar.textContent = "conseguir!";
 
 
 
+let corFonte = document.querySelector("body");
+corFonte.style.color = "blue";
 
+let inicial = 0;
+let soma = 0;
 
+do {
+  inicial = prompt("digite um numero!");
+  soma == soma + number(inicial);
+  alert(soma);
 
+}
 
+while (soma < 500);
+
+alert("A soma total é igual a " + soma);
 
 
 
