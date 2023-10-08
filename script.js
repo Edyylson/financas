@@ -58,25 +58,18 @@ let notas = [10, 20, 30];
 let alunos = [marcos, mario, max];*/
 
 
+function entrar() {
+  var senha = '';
 
+  do {
+    senha = prompt("Digite sua senha: ");
 
-let corFonte = document.querySelector("body");
-corFonte.style.color = "blue";
-
-let inicial = 0;
-let soma = 0;
-
-do {
-  inicial = prompt("digite um numero!");
-  soma == soma + number(inicial);
-  alert(soma);
-
+    if (senha == '2112js')
+      alert("Entrando no sistema...");
+    else
+      alert("Senha invalida, tente novamente!");
+  } while (senha != '2112js');
 }
-
-while (soma < 500);
-
-alert("A soma total é igual a " + soma);
-
 
 
 
