@@ -3,6 +3,7 @@ const descItem = document.querySelector("#desc");
 const amount = document.querySelector("#amount");
 const type = document.querySelector("#type");
 const btnNew = document.querySelector("#btnNew");
+const tDados = document.querySelector(".dados");
 
 const incomes = document.querySelector(".incomes");
 const expenses = document.querySelector(".expenses");
@@ -15,15 +16,8 @@ btnNew.onclick = () => {
     return alert("Preencha todos os campos!");
   }
 
-  items.push({
-    desc: descItem.value,
-    amount: Math.abs(amount.value).toFixed(2),
-    type: type.value,
-  });
+  tDados.innerHTML = descItem.value;
 
-  setItensBD();
-
-  loadItens();
 
   descItem.value = "";
   amount.value = "";
@@ -87,11 +81,7 @@ function getTotals() {
   total.innerHTML = totalItems;
 }
 
-const getItensBD = () => JSON.parse(localStorage.getItem("db_items")) ?? [];
-const setItensBD = () =>
-  localStorage.setItem("db_items", JSON.stringify(items));
 
-loadItens();
 
 
 
