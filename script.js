@@ -1,76 +1,97 @@
-//var nome = prompt("digite o seu nome!");
-//alert(nome);
+const tbody = document.querySelector("tbody");
+const descItem = document.querySelector("#desc");
+const amount = document.querySelector("#amount");
+const type = document.querySelector("#type");
+const btnNew = document.querySelector("#btnNew");
 
-//var num1 = Number(prompt("digite um número de 0 a 100!"));
-//var num2 = Number(prompt("digite um número de 0 a 50!"));
-//var soma = num1 + num2;
-//alert("A soma de todos os numeros é" + " " + soma);
+const incomes = document.querySelector(".incomes");
+const expenses = document.querySelector(".expenses");
+const total = document.querySelector(".total");
 
-//var x = 10;
-//x = x + x / 2;
-//alert("O resultado final de x é" + " " + x);
+let items;
 
-//var x = prompt("digite um número...");
-//if (x > 10)
-//  alert("aprovado")
-//else
-//  alert("reprovado");
+btnNew.onclick = () => {
+  if (descItem.value === "" || amount.value === "" || type.value === "") {
+    return alert("Preencha todos os campos!");
+  }
 
+  items.push({
+    desc: descItem.value,
+    amount: Math.abs(amount.value).toFixed(2),
+    type: type.value,
+  });
 
-//var y = 20;
-//var z = 30;
-//var result = y < z && z / 2 == 15;   o && sig e
-//alert(result);
+  setItensBD();
 
+  loadItens();
 
-//var tarefas = prompt("você desfilou ou fez o trabalho?")
-//if (tarefas == "desfilei" || tarefas == "trabalho")   || sig ou
-// alert("você foi aprovado!")
-//else
-// alert("você esta reprovado!");
+  descItem.value = "";
+  amount.value = "";
+};
 
-
-
-
-
-/*let mensagem = document.querySelector("h1");
-mensagem.textContent = "QUE BENÇÃO HOJE É DOMINGO!!!"
-alert(mensagem.textContent);
-
-
-let divs = document.querySelectorAll("div");
-divs.textContent = "deu certo";
-alert(divs.textContent);
-
-document.write(mensagem.textContent);
-
-
-let mudanca = document.getElementById("teste1");
-let armazenar = document.write(mudanca.textContent);
-
-
-let acrescentar = document.getElementsByClassName("teste03");
-acrescentar.textContent = "comecei a programar";
-alert(acrescentar.textContent);
-
-
-let notas = [10, 20, 30];
-let alunos = [marcos, mario, max];*/
-
-
-function entrar() {
-  var senha = '';
-
-  do {
-    senha = prompt("Digite sua senha: ");
-
-    if (senha == '2112js')
-      alert("Entrando no sistema...");
-    else
-      alert("Senha invalida, tente novamente!");
-  } while (senha != '2112js');
+function deleteItem(index) {
+  items.splice(index, 1);
+  setItensBD();
+  loadItens();
 }
 
+function insertItem(item, index) {
+  let tr = document.createElement("tr");
+
+  tr.innerHTML = `
+    <td>${item.desc}</td>
+    <td>R$ ${item.amount}</td>
+    <td class="columnType">${item.type === "Entrada"
+      ? '<i class="bx bxs-chevron-up-circle"></i>'
+      : '<i class="bx bxs-chevron-down-circle"></i>'
+    }</td>
+    <td class="columnAction">
+      <button onclick="deleteItem(${index})"><i class='bx bx-trash'></i></button>
+    </td>
+  `;
+
+  tbody.appendChild(tr);
+}
+
+function loadItens() {
+  items = getItensBD();
+  tbody.innerHTML = "";
+  items.forEach((item, index) => {
+    insertItem(item, index);
+  });
+
+  getTotals();
+}
+
+function getTotals() {
+  const amountIncomes = items
+    .filter((item) => item.type === "Entrada")
+    .map((transaction) => Number(transaction.amount));
+
+  const amountExpenses = items
+    .filter((item) => item.type === "Saída")
+    .map((transaction) => Number(transaction.amount));
+
+  const totalIncomes = amountIncomes
+    .reduce((acc, cur) => acc + cur, 0)
+    .toFixed(2);
+
+  const totalExpenses = Math.abs(
+    amountExpenses.reduce((acc, cur) => acc + cur, 0)
+  ).toFixed(2);
+
+  const totalItems = (totalIncomes - totalExpenses).toFixed(2);
+
+  incomes.innerHTML = totalIncomes;
+  expenses.innerHTML = totalExpenses;
+  total.innerHTML = totalItems;
+}
+
+const getItensBD = () => JSON.parse(localStorage.getItem("db_items")) ?? [];
+const setItensBD = () =>
+  localStorage.setItem("db_items", JSON.stringify(items));
+
+loadItens();
 
 
 

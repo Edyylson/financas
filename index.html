@@ -1,35 +1,65 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Finanças da Igreja</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="shortcut icon" href="img favicom/favicon.ico" type="image/x-icon">
-  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <title>Document</title>
 
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+
+  <link rel="stylesheet" href="style.css">
 </head>
 
-
-
 <body>
-
-  <h1>Testando conhecimentos!</h1>
-
   <main>
-
-    <div id="teste1">teste01
-      <h2 id="msg">Ja deu tudo certo!</h2>
+    <div class="resume">
+      <div>
+        Entradas: R$
+        <span class="incomes">0.00</span>
+      </div>
+      <div>
+        Saídas: R$
+        <span class="expenses">0.00</span>
+      </div>
+      <div>
+        Total: R$
+        <span class="total">0.00</span>
+      </div>
     </div>
-
-
-    <div id="teste2" class="caixa02">teste02</div>
-
-    <div class="teste03">testando</div>
-
-
+    <div class="newItem">
+      <div class="divDesc">
+        <label for="desc">Descrição</label>
+        <input type="text" id="desc" />
+      </div>
+      <div class="divAmount">
+        <label for="amount">Valor</label>
+        <input type="number" id="amount" />
+      </div>
+      <div class="divType">
+        <label for="type">Tipo</label>
+        <select id="type">
+          <option>Entrada</option>
+          <option>Saída</option>
+        </select>
+      </div>
+      <button id="btnNew">Incluir</button>
+    </div>
+    <div class="divTable">
+      <table>
+        <thead>
+          <tr>
+            <th>Descrição</th>
+            <th class="columnAmount">Valor</th>
+            <th class="columnType">Tipo</th>
+            <th class="columnAction"></th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
   </main>
 
   <script src="script.js"></script>
