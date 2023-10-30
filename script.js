@@ -1,89 +1,58 @@
-const tbody = document.querySelector("tbody");
-const descItem = document.querySelector("#desc");
-const amount = document.querySelector("#amount");
-const type = document.querySelector("#type");
-const btnNew = document.querySelector("#btnNew");
-const tDados = document.querySelector(".dados");
+/*const hoje = new Date()
+const dia = hoje.getDate().toString().padStart(2, '0')
+const mes = String(hoje.getMonth() + 1).padStart(2, '0')
+const ano = hoje.getFullYear()
+const dataAtual = `${ano} - ${mes} - ${dia}`
+const descrit = "pago";
 
-const incomes = document.querySelector(".incomes");
-const expenses = document.querySelector(".expenses");
-const total = document.querySelector(".total");
+const { TopologyDescription } = require("mongodb")
+let mysql = require("mysql");
 
-let items;
+let conexao = mysql.createConnection({
+  host: "localhost",
+  database: "financas",
+  user: "root",
+  password: ""
 
-btnNew.onclick = () => {
-  if (descItem.value === "" || amount.value === "" || type.value === "") {
-    return alert("Preencha todos os campos!");
+});
+
+conexao.connect(function (err) {
+
+
+  if (err) { throw err }
+
+  else {
+    console.log("conexão exitosa")
+
   }
 
-  tDados.innerHTML = descItem.value;
+});
 
+const inserir = "insert into gastos values(default,'2023-10-25',	'" + descrit + "',	    '100',	'doação',	'especie',	   'outubro',	'2');"
 
-  descItem.value = "";
-  amount.value = "";
-};
+conexao.query(inserir, function (error) {
+  if (error) {
+    throw error;
+  }
+  else { console.log("dados inseridos corretamente") }
 
-function deleteItem(index) {
-  items.splice(index, 1);
-  setItensBD();
-  loadItens();
-}
-
-function insertItem(item, index) {
-  let tr = document.createElement("tr");
-
-  tr.innerHTML = `
-    <td>${item.desc}</td>
-    <td>R$ ${item.amount}</td>
-    <td class="columnType">${item.type === "Entrada"
-      ? '<i class="bx bxs-chevron-up-circle"></i>'
-      : '<i class="bx bxs-chevron-down-circle"></i>'
-    }</td>
-    <td class="columnAction">
-      <button onclick="deleteItem(${index})"><i class='bx bx-trash'></i></button>
-    </td>
-  `;
-
-  tbody.appendChild(tr);
-}
-
-function loadItens() {
-  items = getItensBD();
-  tbody.innerHTML = "";
-  items.forEach((item, index) => {
-    insertItem(item, index);
-  });
-
-  getTotals();
-}
-
-function getTotals() {
-  const amountIncomes = items
-    .filter((item) => item.type === "Entrada")
-    .map((transaction) => Number(transaction.amount));
-
-  const amountExpenses = items
-    .filter((item) => item.type === "Saída")
-    .map((transaction) => Number(transaction.amount));
-
-  const totalIncomes = amountIncomes
-    .reduce((acc, cur) => acc + cur, 0)
-    .toFixed(2);
-
-  const totalExpenses = Math.abs(
-    amountExpenses.reduce((acc, cur) => acc + cur, 0)
-  ).toFixed(2);
-
-  const totalItems = (totalIncomes - totalExpenses).toFixed(2);
-
-  incomes.innerHTML = totalIncomes;
-  expenses.innerHTML = totalExpenses;
-  total.innerHTML = totalItems;
-}
+})
 
 
 
 
+const gastos = "select * from gastos";
+conexao.query(gastos, function (error, lista) {
+  if (error) {
+    throw error
+  }
+  else {
+    console.log(lista)
+
+  }
+});
+
+conexao.end();*/
 
 
 
